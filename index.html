@@ -1,518 +1,345 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adeeba Mueen · Technical Trainer & SaaS Specialist</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <style>
-    :root {
-      color-scheme: light;
-    }
-    body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(160deg, #f8fbff 0%, #eef2ff 40%, #f9fbff 100%);
-      color: #0f172a;
-      scroll-behavior: smooth;
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(22px);
-      box-shadow: 0 18px 40px -24px rgba(15, 23, 42, 0.55);
-    }
-    .card-flat {
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 24px;
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      box-shadow: 0 12px 32px -28px rgba(30, 41, 59, 0.66);
-    }
-    .section-shell {
-      scroll-margin-top: 6.5rem;
-    }
-    .section-title {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-size: clamp(1.725rem, 2vw, 2rem);
-      font-weight: 700;
-      color: #312e81;
-    }
-    .section-title::before {
-      content: "";
-      width: 34px;
-      height: 4px;
-      border-radius: 9999px;
-      background: linear-gradient(90deg, #6366f1, #38bdf8);
-      display: inline-block;
-    }
-    [data-animate] {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    [data-animate].is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    @media (prefers-reduced-motion: reduce) {
-      [data-animate] {
-        opacity: 1 !important;
-        transform: none !important;
-      }
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Adeeba Mueen is a technical trainer and product enablement specialist in Hyderabad, India, with experience in SaaS, Decisions BPM, cloud training, and AI-enabled learning.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f7faff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111b2b" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Adeeba Mueen · Technical Training &amp; Product Enablement">
+  <meta property="og:description" content="Selected work in SaaS product education, AI-enabled BPM, and enterprise cloud training.">
+  <meta property="profile:first_name" content="Adeeba">
+  <meta property="profile:last_name" content="Mueen">
+  <title>Adeeba Mueen · Technical Training &amp; Product Enablement</title>
+  <script>
+    try {
+      const theme = localStorage.getItem("adeeba-theme");
+      if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+    } catch {}
+  </script>
+  <link rel="icon" href="mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
 </head>
-<body class="min-h-screen text-slate-800 antialiased">
-  <div class="absolute inset-x-0 -top-48 -z-10 flex justify-center blur-3xl opacity-70">
-    <div class="h-96 w-[40rem] rounded-full bg-gradient-to-br from-indigo-200 via-sky-200 to-purple-200"></div>
-  </div>
-
-  <header class="sticky top-0 z-50 mx-auto max-w-6xl px-4">
-    <nav class="glass mt-6 flex items-center justify-between rounded-2xl px-6 py-4 shadow-xl">
-      <a href="/" class="flex items-center gap-3">
-        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600">
-          <i class="fa-solid fa-sparkles text-xl"></i>
-        </div>
-        <span class="text-lg font-semibold tracking-tight text-indigo-600">Adeeba Mueen</span>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Adeeba Mueen, home">
+        <img src="mark.svg" width="27" height="27" alt="">
+        <span>Adeeba Mueen</span>
       </a>
-      <button
-        id="mobile-menu-button"
-        class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-indigo-100 text-indigo-600 shadow-sm transition md:hidden"
-        aria-label="Toggle navigation"
-      >
-        <i class="fa-solid fa-bars text-xl"></i>
-      </button>
-      <div class="hidden items-center gap-1 md:flex">
-        <a class="rounded-xl px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600" href="#summary">Summary</a>
-        <a class="rounded-xl px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600" href="#experience">Experience</a>
-        <a class="rounded-xl px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600" href="#education">Education</a>
-        <a class="rounded-xl px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600" href="#skills">Skills</a>
-        <a class="rounded-xl px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600" href="#certifications">Certifications</a>
-        <a class="rounded-xl px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600" href="#contact">Contact</a>
+      <nav class="nav" id="navigation" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Credentials</a>
+        <a href="resume.html">Résumé</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button search-button" id="search-button" type="button" aria-label="Open quick navigation" aria-haspopup="dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>
+          <kbd>Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-button" id="theme-button" type="button" aria-label="Switch color theme" hidden>
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 15.2a8.8 8.8 0 0 1-11.8-11.8 9 9 0 1 0 11.8 11.8Z"/></svg>
+        </button>
+        <button class="icon-button menu-button" id="menu-button" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navigation" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16M4 15h16"/></svg>
+        </button>
       </div>
-    </nav>
-    <div id="mobile-menu" class="glass mt-3 hidden flex-col gap-2 rounded-2xl px-6 py-5 shadow-xl md:hidden">
-      <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600" href="#summary">Summary</a>
-      <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600" href="#experience">Experience</a>
-      <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600" href="#education">Education</a>
-      <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600" href="#skills">Skills</a>
-      <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600" href="#certifications">Certifications</a>
-      <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600" href="#contact">Contact</a>
     </div>
   </header>
 
-  <main class="mx-auto mt-20 flex max-w-6xl flex-col gap-24 px-4 pb-24">
-    <section id="summary" class="section-shell">
-      <div class="card-flat relative overflow-hidden px-8 py-12 md:px-14 md:py-16" data-animate>
-        <div class="absolute inset-y-0 right-0 hidden w-2/5 bg-gradient-to-br from-indigo-50 via-sky-50 to-transparent md:block"></div>
-        <div class="relative grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-center">
-          <div class="space-y-6">
-            <span class="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-indigo-600">
-              <i class="fa-solid fa-bolt-lightning text-sm"></i>
-              Technical Trainer · SaaS Specialist
-            </span>
-            <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-              Crafting delightful learning journeys for modern software teams.
-            </h1>
-            <p class="text-lg text-slate-600">
-              Adeeba translates complex BPM workflows into immersive experiences that drive adoption, bolster product confidence, and keep support queues light. Former Google Cloud consultant, now elevating teams with high-impact training and documentation.
-            </p>
-            <div class="flex flex-wrap items-center gap-4">
-              <a
-                href="mailto:adeebamueen5@gmail.com"
-                class="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-200 transition hover:-translate-y-0.5 hover:bg-indigo-500"
-              >
-                <i class="fa-solid fa-envelope"></i>
-                Book a Session
-              </a>
-              <a
-                href="https://www.linkedin.com/in/adeebamueen"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 rounded-xl border border-indigo-200 bg-white px-5 py-3 text-sm font-semibold text-indigo-600 transition hover:border-indigo-300 hover:text-indigo-500"
-              >
-                <i class="fa-brands fa-linkedin"></i>
-                Connect on LinkedIn
-              </a>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Hyderabad"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-3 text-sm font-medium text-slate-600 transition hover:border-indigo-200 hover:text-indigo-500"
-              >
-                <i class="fa-solid fa-location-dot"></i>
-                Hyderabad, India
-              </a>
-            </div>
-          </div>
-          <div class="relative mx-auto w-full max-w-sm">
-            <div class="card-flat relative flex h-full flex-col justify-between overflow-hidden px-7 py-8 shadow-none">
-              <div class="space-y-5">
-                <div class="flex items-center gap-3">
-                  <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600">
-                    <i class="fa-solid fa-graduation-cap text-lg"></i>
-                  </div>
-                  <div>
-                    <p class="text-xs uppercase tracking-[0.3em] text-slate-400">Tenure</p>
-                    <p class="text-lg font-semibold text-slate-800">3+ Years Training</p>
-                  </div>
-                </div>
-                <div class="grid gap-4 rounded-2xl border border-dashed border-indigo-100 bg-indigo-50/60 px-5 py-6">
-                  <p class="text-sm font-medium text-slate-500">Trusted by teams at</p>
-                  <div class="grid grid-cols-3 gap-4 text-sm font-semibold text-indigo-500">
-                    <span>Decisions</span>
-                    <span>CloudThat</span>
-                  </div>
-                </div>
-                <div class="grid grid-cols-3 gap-3 text-center text-xs font-medium text-slate-500">
-                  <div class="rounded-2xl border border-slate-200/60 px-3 py-4">
-                    <p class="text-2xl font-semibold text-indigo-600">100%</p>
-                    <p>CSAT</p>
-                  </div>
-                  <div class="rounded-2xl border border-slate-200/60 px-3 py-4">
-                    <p class="text-2xl font-semibold text-indigo-600">95%</p>
-                    <p>Ticket Relief</p>
-                  </div>
-                  <div class="rounded-2xl border border-slate-200/60 px-3 py-4">
-                    <p class="text-2xl font-semibold text-indigo-600">80%</p>
-                    <p>Uplift</p>
-                  </div>
-                </div>
-              </div>
-              <p class="pt-6 text-[13px] leading-6 text-slate-500">
-                “Adeeba brings clarity, empathy, and energy to every learning environment—translating complex platform capabilities into usable, actionable know-how.”
-              </p>
-            </div>
+  <main id="main">
+    <div class="stage">
+      <section class="hero" id="summary" aria-labelledby="hero-title">
+        <div class="hero-main">
+          <h1 id="hero-title" class="display">Adeeba <em>Mueen</em></h1>
+          <p class="hero-lede">I help teams learn <em>complex software.</em></p>
+          <p class="hero-detail">Technical trainer and product enablement specialist. I build learning programs for SaaS teams, from product onboarding to hands-on AI and cloud training.</p>
+          <div class="actions">
+            <a class="button primary" href="#work">Explore the work <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14m-6-6 6 6 6-6"/></svg></a>
+            <a class="button" href="resume.html">View résumé <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
           </div>
         </div>
-      </div>
-    </section>
+        <p class="hero-meta"><span>Hyderabad, India</span><span>4+ years in training &amp; enablement</span></p>
+      </section>
 
-    <section id="experience" class="section-shell">
-      <div class="space-y-12">
-        <div class="flex flex-col gap-4" data-animate>
-          <h2 class="section-title">Experience</h2>
-          <p class="max-w-3xl text-base text-slate-600">
-            Anchored in hands-on SaaS enablement and cloud architecture, Adeeba leads cohorts through pragmatic learning paths that meet stakeholders where they are—and equips them to grow further.
+      <aside class="showcase" aria-label="Areas of expertise">
+        <div class="showcase-inner" data-preview="learning">
+          <div class="block-heading"><span>Explore my expertise</span><span class="block-index" aria-hidden="true">01 / 03</span></div>
+          <p class="topic-hint" hidden>
+            <span class="pointer-hint">Hover to preview or click to open a cube.</span>
+            <span class="touch-hint">Tap a cube to explore.</span>
           </p>
+          <div class="block-art">
+            <svg class="learning-block" viewBox="0 0 550 470" role="group" aria-label="Three areas of expertise">
+              <defs>
+                <linearGradient id="learning-top" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6394c8"/><stop offset="1" stop-color="#376ca5"/></linearGradient>
+                <linearGradient id="ai-top" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e9f5ff"/><stop offset="1" stop-color="#bbd8f3"/></linearGradient>
+                <linearGradient id="cloud-top" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c3d7ed"/><stop offset="1" stop-color="#8caacb"/></linearGradient>
+                <radialGradient id="block-shadow"><stop stop-color="#152c4a" stop-opacity=".28"/><stop offset="1" stop-color="#152c4a" stop-opacity="0"/></radialGradient>
+                <g id="topic-product" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="7" y="6" width="38" height="34" rx="4"/><path d="M7 15h38m-30 8h17m-17 8h10m9-1 3 3 5-6"/>
+                </g>
+                <g id="topic-automation" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 23h13m0 0V12h12M26 23v11h12"/><circle cx="9" cy="23" r="4"/><circle cx="26" cy="23" r="3"/><rect x="38" y="8" width="8" height="8" rx="2"/><rect x="38" y="30" width="8" height="8" rx="2"/>
+                </g>
+                <g id="topic-enterprise" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M26 38V14m0 0c-6-5-12-6-19-4v24c7-2 13-1 19 4 6-5 12-6 19-4V10c-7-2-13-1-19 4Z"/><path d="M13 17c3 0 5 1 7 2m-7 5c3 0 5 1 7 2m12-7c2-1 4-2 7-2m-7 9c2-1 4-2 7-2"/>
+                </g>
+                <g id="cube-open" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                  <circle r="9"/><path d="M-3.5 0h7M0-3.5v7"/>
+                </g>
+                <path id="mini-top" d="m0 44 73-36 73 36-73 37Z"/>
+                <path id="mini-left" d="m0 44 73 37v65L0 109Z"/>
+                <path id="mini-right" d="m73 81 73-37v65l-73 37Z"/>
+              </defs>
+              <path class="network-guide" d="M113 312 275 353l162-41M113 312v-79m162 120V187m162 125v-79" fill="none"/>
+              <path class="network-guide network-branch" d="M275 353v54" fill="none" aria-hidden="true"/>
+              <g class="network-node" transform="translate(40 157)" data-topic="learning">
+                <rect x="-6" y="-12" width="158" height="224" fill="transparent"/>
+                <ellipse class="block-shadow" cx="73" cy="157" rx="83" ry="24" fill="url(#block-shadow)"/>
+                <g class="node-cube">
+                  <g class="cube-shell">
+                    <use href="#mini-left" fill="#27598c"/><use href="#mini-right" fill="#1b426d"/><use href="#mini-top" fill="url(#learning-top)"/>
+                    <g transform="matrix(.73 -.36 .73 .36 0 44)" color="#f4f9ff"><use href="#topic-product" x="24" y="25"/></g>
+                    <text class="node-number" transform="matrix(.73 .37 0 1 0 44)" x="25" y="44">01</text>
+                  </g>
+                </g>
+                <g class="node-action">
+                  <rect class="node-pill" x="-3" y="178" width="152" height="38" rx="19"/>
+                  <text class="node-label" x="56" y="203">Enablement</text>
+                  <use class="node-plus" href="#cube-open" x="126" y="197"/>
+                </g>
+              </g>
+              <g class="network-node" transform="translate(202 70)" data-topic="ai">
+                <rect x="-6" y="-12" width="158" height="224" fill="transparent"/>
+                <ellipse class="block-shadow" cx="73" cy="157" rx="83" ry="24" fill="url(#block-shadow)"/>
+                <g class="node-cube">
+                  <g class="cube-shell">
+                    <use href="#mini-left" fill="#bad2eb"/><use href="#mini-right" fill="#93b2d4"/><use href="#mini-top" fill="url(#ai-top)"/>
+                    <g transform="matrix(.73 -.36 .73 .36 0 44)" color="#173752"><use href="#topic-automation" x="24" y="25"/></g>
+                    <text class="node-number node-number-dark" transform="matrix(.73 .37 0 1 0 44)" x="25" y="44">02</text>
+                  </g>
+                </g>
+                <g class="node-action">
+                  <rect class="node-pill" x="-3" y="178" width="152" height="38" rx="19"/>
+                  <text class="node-label" x="56" y="203">BPM &amp; AI</text>
+                  <use class="node-plus" href="#cube-open" x="126" y="197"/>
+                </g>
+              </g>
+              <g class="network-node" transform="translate(364 157)" data-topic="cloud">
+                <rect x="-6" y="-12" width="158" height="224" fill="transparent"/>
+                <ellipse class="block-shadow" cx="73" cy="157" rx="83" ry="24" fill="url(#block-shadow)"/>
+                <g class="node-cube">
+                  <g class="cube-shell">
+                    <use href="#mini-left" fill="#486687"/><use href="#mini-right" fill="#304c6b"/><use href="#mini-top" fill="url(#cloud-top)"/>
+                    <g transform="matrix(.73 -.36 .73 .36 0 44)" color="#173752"><use href="#topic-enterprise" x="24" y="25"/></g>
+                    <text class="node-number" transform="matrix(.73 .37 0 1 0 44)" x="25" y="44">03</text>
+                  </g>
+                </g>
+                <g class="node-action">
+                  <rect class="node-pill" x="-3" y="178" width="152" height="38" rx="19"/>
+                  <text class="node-label" x="56" y="203">Enterprise</text>
+                  <use class="node-plus" href="#cube-open" x="126" y="197"/>
+                </g>
+              </g>
+              <g class="network-pins"><circle cx="113" cy="312" r="4"/><circle cx="275" cy="353" r="4"/><circle cx="437" cy="312" r="4"/></g>
+            </svg>
+            <div class="topic-face" hidden>
+              <button class="face-back" type="button" aria-label="Back to topics">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+              </button>
+              <article class="preview-panel" id="preview-learning" data-panel="learning" aria-labelledby="topic-title-learning">
+                <h3 id="topic-title-learning">Technical Product Enablement</h3>
+                <div class="preview-outcome"><strong>95%</strong><span>improvement in support ticket-handling efficiency</span></div>
+                <p class="preview-summary">I turn training needs and learner personas into onboarding, release training, and role-based learning paths.</p>
+                <ul class="preview-strengths" aria-label="Strengths"><li>Instructional design</li><li>Product adoption</li><li>Assessment design</li></ul>
+                <a class="preview-link" href="#learning">See enablement work <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+              </article>
+              <article class="preview-panel" id="preview-ai" data-panel="ai" aria-labelledby="topic-title-ai" hidden>
+                <h3 id="topic-title-ai">BPM &amp; AI Automation</h3>
+                <div class="preview-outcome"><strong>70+</strong><span>professionals trained on AI integration in Decisions BPM</span></div>
+                <p class="preview-summary">I build RAG workflows and connect REST APIs to bring external data into Decisions BPM.</p>
+                <ul class="preview-strengths" aria-label="Strengths"><li>Prompt engineering</li><li>API integration</li><li>MCP Server training</li></ul>
+                <a class="preview-link" href="#ai">See automation work <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+              </article>
+              <article class="preview-panel" id="preview-cloud" data-panel="cloud" aria-labelledby="topic-title-cloud" hidden>
+                <h3 id="topic-title-cloud">Enterprise Learning &amp; Customer Success</h3>
+                <div class="preview-outcome"><strong>4.5/5</strong><span>learner satisfaction in enterprise technical training</span></div>
+                <p class="preview-summary">I design hands-on cloud and SQL labs and help enterprise learners apply new skills through troubleshooting and follow-up.</p>
+                <ul class="preview-strengths" aria-label="Strengths"><li>Enterprise facilitation</li><li>Customer education</li><li>Post-training support</li></ul>
+                <a class="preview-link" href="#cloud">See enterprise training work <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+              </article>
+            </div>
+          </div>
         </div>
-        <div class="grid gap-8 md:grid-cols-2" data-animate>
-          <article class="card-flat flex h-full flex-col gap-6 px-8 py-10 transition hover:-translate-y-1 hover:shadow-lg">
-            <header class="flex flex-col gap-1">
-              <div class="flex items-center justify-between gap-3">
-                <h3 class="text-xl font-semibold text-slate-900">Technical Trainer</h3>
-                <span class="rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-600">Present</span>
-              </div>
-              <a
-                href="https://decisions.com/"
-                class="text-sm font-medium text-indigo-500 hover:text-indigo-600"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Decisions · Hyderabad
-              </a>
-              <p class="text-xs uppercase tracking-[0.35em] text-slate-400">Oct 2023 – Present</p>
-            </header>
-            <ul class="space-y-3 text-sm text-slate-600">
-              <li class="flex items-start gap-3">
-                <span class="mt-1 h-2 w-2 rounded-full bg-indigo-400"></span>
-                Orchestrated end-to-end onboarding journeys for clients and teammates, accelerating product adoption on the Decisions BPM platform.
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 h-2 w-2 rounded-full bg-indigo-400"></span>
-                Built role-specific academies and live learning experiences that strengthened cross-functional fluency and reduced ticket load by 95%.
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 h-2 w-2 rounded-full bg-indigo-400"></span>
-                Delivered ongoing enablement via tailored office hours, documentation, and micro-learning assets with 100% satisfaction scores.
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 h-2 w-2 rounded-full bg-indigo-400"></span>
-                Championed internal knowledge-sharing summits to increase platform literacy and empower professional services teams (+90% logic proficiency).
-              </li>
+      </aside>
+
+      <section class="work" id="work" aria-labelledby="work-title">
+        <header class="section-heading">
+          <p class="section-label">01 <span></span> Selected work</p>
+          <h2 id="work-title">Learning by <em>doing.</em></h2>
+          <p>Three areas of work across product education, workflow automation, and cloud training.</p>
+        </header>
+        <ol class="chapters">
+          <li class="chapter" id="learning" data-work="learning">
+            <p class="chapter-index">01 / 03</p>
+            <h3>Learning design</h3>
+            <p class="chapter-kind">Decisions · Product education</p>
+            <p>I built role-based learning plans, digital courses, and assessments for customers and internal teams. Hands-on training improved Support ticket-handling efficiency by 95% and Professional Services’ logic-building and testing capabilities by 90%.</p>
+            <ul class="tags" aria-label="Tools and methods"><li>Articulate Rise</li><li>Docebo LMS</li><li>SharePoint</li></ul>
+          </li>
+          <li class="chapter" id="ai" data-work="ai">
+            <p class="chapter-index">02 / 03</p>
+            <h3>AI &amp; BPM workflows</h3>
+            <p class="chapter-kind">Decisions · Technical enablement</p>
+            <p>I built retrieval-augmented generation workflows and trained more than 70 professionals on AI integration in Decisions BPM, with a 90% training success rate. I also demonstrated REST API integrations and taught Deployment Server and MCP Server workflows to more than 50 professionals.</p>
+            <ul class="tags" aria-label="Tools and methods"><li>Decisions BPM</li><li>RAG</li><li>MCP Server</li><li>REST APIs</li></ul>
+          </li>
+          <li class="chapter" id="cloud" data-work="cloud">
+            <p class="chapter-index">03 / 03</p>
+            <h3>Cloud training</h3>
+            <p class="chapter-kind">CloudThat · Enterprise learning</p>
+            <p>I taught Google Cloud, networking, Linux, and SQL to enterprise learners, earning 4.5/5 learner satisfaction ratings. I also engineered a highly available MySQL setup on Google Compute Engine with automated failover.</p>
+            <ul class="tags" aria-label="Tools and methods"><li>Google Cloud</li><li>Linux</li><li>SQL</li><li>MySQL</li></ul>
+          </li>
+        </ol>
+      </section>
+    </div>
+
+    <section class="section wrap" id="experience" aria-labelledby="experience-title">
+      <div class="split">
+        <header class="section-heading">
+          <p class="section-label">02 <span></span> Experience</p>
+          <h2 id="experience-title">From Infrastructure to <em>Intelligent Automation</em></h2>
+        </header>
+        <ol class="timeline">
+          <li>
+            <p class="period">Oct 2023 – Present</p>
+            <h3>Technical Trainer</h3>
+            <p class="role-meta">Decisions · Hyderabad, India</p>
+            <ul class="bullet-list">
+              <li>Deliver Decisions BPM training for customers, new hires, and internal teams, with 100% customer satisfaction.</li>
+              <li>Partner with Training and Product Marketing to run customer enablement events and train users on feature releases.</li>
+              <li>Produce tutorials, animated explainers, and product walkthroughs with AI-assisted authoring and video tools.</li>
             </ul>
-          </article>
-
-          <article class="card-flat flex h-full flex-col gap-6 px-8 py-10 transition hover:-translate-y-1 hover:shadow-lg" data-animate>
-            <header class="flex flex-col gap-1">
-              <div class="flex items-center justify-between gap-3">
-                <h3 class="text-xl font-semibold text-slate-900">Research Associate</h3>
-                <span class="rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-600">2023</span>
-              </div>
-              <a
-                href="https://www.cloudthat.com/"
-                class="text-sm font-medium text-indigo-500 hover:text-indigo-600"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                CloudThat · Bangalore (Remote)
-              </a>
-              <p class="text-xs uppercase tracking-[0.35em] text-slate-400">Mar 2022 – Oct 2023</p>
-            </header>
-            <ul class="space-y-3 text-sm text-slate-600">
-              <li class="flex items-start gap-3">
-                <span class="mt-1 h-2 w-2 rounded-full bg-indigo-400"></span>
-                Facilitated GCP, networking, Linux, and SQL sessions for enterprise cohorts (KPMG-US, Deloitte, UpGrad) with 4.5/5 learner satisfaction.
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 h-2 w-2 rounded-full bg-indigo-400"></span>
-                Engineered immersive labs mirroring real-world workflows, boosting post-training competence by 80%.
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 h-2 w-2 rounded-full bg-indigo-400"></span>
-                Led the design of high-availability MySQL disaster recovery on Google Compute Engine with automated failover.
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 h-2 w-2 rounded-full bg-indigo-400"></span>
-                Maintained proactive feedback loops that reduced client-reported issues and cemented long-term training partnerships.
-              </li>
+          </li>
+          <li>
+            <p class="period">Mar 2022 – Oct 2023</p>
+            <h3>Research Associate</h3>
+            <p class="role-meta">CloudThat · Bangalore, India (remote)</p>
+            <ul class="bullet-list">
+              <li>Delivered technical training to professionals from KPMG-US, Deloitte, and UpGrad.</li>
+              <li>Developed custom training materials, labs, and assessments that increased learner engagement and post-training competence by 80%.</li>
+              <li>Provided troubleshooting and follow-up support, contributing to a 90% improvement in positive session feedback.</li>
             </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section skills-section" id="skills" aria-labelledby="skills-title">
+      <div class="wrap">
+        <header class="section-heading">
+          <p class="section-label">03 <span></span> Skills</p>
+          <h2 id="skills-title">The <em>toolkit.</em></h2>
+        </header>
+        <div class="skill-grid">
+          <article>
+            <h3>Training &amp; enablement</h3>
+            <p>Customer education, feature release training, onboarding, and virtual facilitation.</p>
+            <ul class="tags"><li>Training needs analysis</li><li>Learner personas</li><li>Instructional design</li><li>Assessment design</li><li>Experiential learning</li></ul>
+          </article>
+          <article>
+            <h3>AI &amp; workflow automation</h3>
+            <p>Hands-on integrations and practical demonstrations for enterprise BPM users.</p>
+            <ul class="tags"><li>Decisions BPM</li><li>Prompt engineering</li><li>RAG</li><li>MCP Server</li><li>Deployment Server</li><li>REST APIs</li><li>Postman</li></ul>
+          </article>
+          <article>
+            <h3>Learning &amp; content tools</h3>
+            <p>Self-paced courses, technical documentation, and AI-assisted video production.</p>
+            <ul class="tags"><li>Articulate Rise</li><li>Docebo LMS</li><li>SharePoint</li><li>Camtasia</li><li>Loom</li><li>Clipchamp</li><li>DaVinci Resolve</li></ul>
+          </article>
+          <article>
+            <h3>Cloud &amp; infrastructure</h3>
+            <p>Technical training, troubleshooting, and hands-on labs.</p>
+            <ul class="tags"><li>Google Cloud Platform</li><li>Google Compute Engine</li><li>Microsoft Azure</li><li>Networking</li><li>Linux</li><li>SQL</li><li>MySQL</li></ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="education" class="section-shell">
-      <div class="card-flat px-8 py-12 sm:px-12" data-animate>
-        <div class="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
-          <div class="space-y-4">
-            <h2 class="section-title">Education</h2>
-            <p class="max-w-xl text-sm text-slate-600">
-              Equipped with foundational computer science depth, Adeeba fuses academic rigor with industry nuance to design impact-driven curricula.
-            </p>
+    <section class="section wrap" id="certifications" aria-labelledby="credentials-title">
+      <div class="split">
+        <header class="section-heading">
+          <p class="section-label">04 <span></span> Credentials</p>
+          <h2 id="credentials-title">Education &amp; <em>credentials.</em></h2>
+        </header>
+        <div class="credentials">
+          <div id="education">
+            <p class="period">Education · Jun 2018 – Jun 2022</p>
+            <h3>B.Tech. in Computer Science and Engineering</h3>
+            <p>Chandigarh Group of Colleges · Chandigarh, India</p>
           </div>
-          <div class="inline-flex items-center gap-4 rounded-2xl border border-indigo-100 bg-indigo-50/70 px-6 py-4 text-sm font-semibold text-indigo-700">
-            <i class="fa-solid fa-seedling text-lg"></i>
-            Lifelong learner · Continuous improvement mindset
+          <div>
+            <p class="period">Certifications</p>
+            <ul class="credential-list">
+              <li><strong>Microsoft Azure AI Fundamentals</strong><span>Microsoft</span></li>
+              <li><strong>Associate Cloud Engineer</strong><span>Google Cloud</span></li>
+            </ul>
           </div>
-        </div>
-        <div class="mt-10 grid gap-6 md:grid-cols-[auto_1fr] md:items-center">
-          <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600">
-            <i class="fa-solid fa-user-graduate text-2xl"></i>
-          </div>
-          <div class="space-y-2">
-            <h3 class="text-xl font-semibold text-slate-900">B.Tech · Computer Science & Engineering</h3>
-            <p class="text-sm font-medium text-indigo-600">Chandigarh Group of Colleges</p>
-            <p class="text-xs uppercase tracking-[0.35em] text-slate-400">Jun 2018 – Jun 2022</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section-shell">
-      <div class="space-y-8">
-        <div data-animate>
-          <h2 class="section-title">Skills Snapshot</h2>
-          <p class="mt-4 max-w-3xl text-sm text-slate-600">
-            A blend of platform mastery, enablement craft, and analytical intuition—calibrated to help teams adopt, adapt, and accelerate.
-          </p>
-        </div>
-        <div class="card-flat px-8 py-10" data-animate>
-          <div class="grid gap-6 md:grid-cols-2">
-            <div class="space-y-4">
-              <h3 class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-400">
-                Platforms & Data
-              </h3>
-              <div class="flex flex-wrap gap-3 text-sm font-medium">
-                <span class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-slate-600">Decisions BPM</span>
-                <span class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-slate-600">GCP</span>
-                <span class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-slate-600">Azure</span>
-                <span class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-slate-600">SQL</span>
-                <span class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-slate-600">Cassandra</span>
-                <span class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-slate-600">Tableau</span>
-                <span class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-slate-600">Looker</span>
-                <span class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-slate-600">Power BI</span>
-              </div>
-            </div>
-            <div class="space-y-4">
-              <h3 class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-400">
-                Enablement Superpowers
-              </h3>
-              <div class="flex flex-wrap gap-3 text-sm font-medium">
-                <span class="rounded-xl border border-indigo-100 bg-indigo-50 px-4 py-2 text-indigo-600">End-user Onboarding</span>
-                <span class="rounded-xl border border-indigo-100 bg-indigo-50 px-4 py-2 text-indigo-600">Instructional Design</span>
-                <span class="rounded-xl border border-indigo-100 bg-indigo-50 px-4 py-2 text-indigo-600">Learning Analytics</span>
-                <span class="rounded-xl border border-indigo-100 bg-indigo-50 px-4 py-2 text-indigo-600">Stakeholder Collaboration</span>
-                <span class="rounded-xl border border-indigo-100 bg-indigo-50 px-4 py-2 text-indigo-600">Documentation & Knowledge Bases</span>
-                <span class="rounded-xl border border-indigo-100 bg-indigo-50 px-4 py-2 text-indigo-600">Problem Solving</span>
-                <span class="rounded-xl border border-indigo-100 bg-indigo-50 px-4 py-2 text-indigo-600">Ticketing Ecosystems</span>
-              </div>
-            </div>
+          <div>
+            <p class="period">Languages</p>
+            <ul class="credential-list">
+              <li><strong>English</strong><span>Professional working proficiency</span></li>
+              <li><strong>Hindi</strong><span>Native proficiency</span></li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="certifications" class="section-shell">
-      <div class="space-y-10">
-        <div data-animate>
-          <h2 class="section-title">Certifications</h2>
-          <p class="mt-4 max-w-2xl text-sm text-slate-600">
-            Credibility anchored in leading cloud providers ensures every learning path is grounded in best-practice excellence.
-          </p>
-        </div>
-        <div class="grid gap-6 md:grid-cols-2" data-animate>
-          <article class="card-flat flex flex-col gap-4 px-8 py-10 text-center transition hover:-translate-y-1 hover:shadow-lg">
-            <span class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-100 to-indigo-100 text-indigo-600">
-              <i class="fa-brands fa-google text-2xl"></i>
-            </span>
-            <h3 class="text-lg font-semibold text-slate-900">Associate Cloud Engineer</h3>
-            <p class="text-sm text-slate-500">Google Cloud</p>
-            <p class="text-xs uppercase tracking-[0.35em] text-slate-400">Validated Architecture · Ops Expertise</p>
-          </article>
-
-          <article class="card-flat flex flex-col gap-4 px-8 py-10 text-center transition hover:-translate-y-1 hover:shadow-lg">
-            <span class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-100 to-indigo-100 text-indigo-600">
-              <i class="fa-brands fa-microsoft text-2xl"></i>
-            </span>
-            <h3 class="text-lg font-semibold text-slate-900">Azure AI Fundamentals</h3>
-            <p class="text-sm text-slate-500">Microsoft</p>
-            <p class="text-xs uppercase tracking-[0.35em] text-slate-400">AI Strategy · Responsible Use</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section-shell">
-      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-indigo-500 to-sky-500 px-8 py-12 text-white shadow-xl sm:px-12" data-animate>
-        <div class="absolute inset-y-0 right-0 h-full w-1/2 opacity-40">
-          <div class="h-full w-full bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.25)_0,_rgba(255,255,255,0)_65%)]"></div>
-        </div>
-        <div class="relative grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-center">
-          <div class="space-y-6">
-            <h2 class="text-3xl font-semibold tracking-tight">Let’s design your next learning experience.</h2>
-            <p class="text-base text-indigo-100">
-              Whether you’re launching a product academy, simplifying a complex migration, or re-energizing your support team—Adeeba creates pathways that stick.
-            </p>
-            <div class="flex flex-wrap items-center gap-4 text-sm">
-              <a
-                href="mailto:adeebamueen5@gmail.com"
-                class="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 font-semibold text-indigo-600 shadow-lg shadow-indigo-900/30 transition hover:-translate-y-0.5 hover:text-indigo-500"
-              >
-                <i class="fa-solid fa-paper-plane"></i>
-                Start a Conversation
-              </a>
-              <a
-                href="https://www.linkedin.com/in/adeebamueen"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 rounded-xl border border-white/40 px-5 py-3 font-semibold text-white transition hover:-translate-y-0.5 hover:border-white"
-              >
-                <i class="fa-brands fa-linkedin"></i>
-                Message on LinkedIn
-              </a>
-            </div>
-          </div>
-          <div class="card-flat relative flex flex-col gap-4 border border-white/20 bg-white/15 px-6 py-7 text-sm text-indigo-100 backdrop-blur-md">
-            <div class="flex items-center gap-3">
-              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
-                <i class="fa-solid fa-user text-lg"></i>
-              </span>
-              <div>
-                <p class="text-xs uppercase tracking-[0.35em] text-indigo-200">Primary Contact</p>
-                <p class="text-base font-semibold text-white">Adeeba Mueen</p>
-              </div>
-            </div>
-            <div class="grid gap-3 text-indigo-100">
-              <a href="mailto:adeebamueen5@gmail.com" class="inline-flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:border-white/20 hover:bg-white/10">
-                <i class="fa-solid fa-envelope"></i>
-                adeebamueen5@gmail.com
-              </a>
-              <span class="inline-flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-                <i class="fa-solid fa-location-dot"></i>
-                Hyderabad, India
-              </span>
-              <span class="inline-flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-                <i class="fa-solid fa-clock"></i>
-                Response within 24h
-              </span>
-            </div>
-          </div>
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <p class="section-label">05 <span></span> Contact</p>
+        <h2 id="contact-title">Let’s talk <em>enablement.</em></h2>
+        <a class="email-link" href="mailto:adeebamueen5@gmail.com">adeebamueen5@gmail.com <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M8 6h10v10"/></svg></a>
+        <div class="actions">
+          <a class="button primary" href="mailto:adeebamueen5@gmail.com">Email me</a>
+          <a class="button" href="https://www.linkedin.com/in/adeebamueen/">Connect on LinkedIn</a>
+          <a class="button quiet" href="resume.html">View résumé</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="mx-auto mt-12 w-full max-w-6xl px-4 pb-12">
-    <div class="card-flat flex flex-col items-center justify-between gap-4 rounded-3xl px-6 py-6 text-center text-xs text-slate-500 sm:flex-row sm:gap-8 sm:px-10">
-      <span>© <span id="currentYear"></span> Adeeba Mueen. Crafted with care for modern learners.</span>
-      <a
-        href="#summary"
-        class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 font-medium text-indigo-500 transition hover:border-indigo-200 hover:text-indigo-400"
-      >
-        Back to top
-        <i class="fa-solid fa-arrow-up"></i>
-      </a>
-    </div>
+  <footer class="site-footer">
+    <div class="wrap footer-row"><span>© <span id="year">2026</span> Adeeba Mueen</span><span>Hyderabad, India</span><a href="#top">Back to top <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a></div>
+    <div class="wrap wordmark" aria-hidden="true">Adeeba Mueen</div>
   </footer>
 
-  <script>
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        const icon = mobileMenuButton.querySelector("i");
-        if (mobileMenu.classList.contains("hidden")) {
-          icon.classList.remove("fa-xmark");
-          icon.classList.add("fa-bars");
-        } else {
-          icon.classList.remove("fa-bars");
-          icon.classList.add("fa-xmark");
-        }
-      });
-
-      mobileMenu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-          const icon = mobileMenuButton.querySelector("i");
-          icon.classList.remove("fa-xmark");
-          icon.classList.add("fa-bars");
-        });
-      });
-    }
-
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.25 }
-    );
-
-    document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
-
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (event) {
-        const targetId = this.getAttribute("href");
-        const targetEl = document.querySelector(targetId);
-        if (!targetEl) return;
-        event.preventDefault();
-        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    });
-  </script>
+  <dialog class="quick-nav" id="quick-nav" aria-labelledby="quick-nav-title">
+    <div class="quick-nav-head"><h2 id="quick-nav-title">Jump to</h2><form method="dialog"><button class="icon-button" type="submit" aria-label="Close quick navigation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></form></div>
+    <label class="visually-hidden" for="quick-filter">Filter destinations</label>
+    <input id="quick-filter" type="search" placeholder="Find a section…" autocomplete="off" autofocus>
+    <ul>
+      <li><a href="#work">Selected work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Education &amp; credentials</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="resume.html">Résumé</a></li>
+    </ul>
+    <p class="quick-empty" role="status" hidden>No matching destinations.</p>
+  </dialog>
 </body>
 </html>
